@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brad Palmer — AI, Ads & Luxury Concierge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0510;--bg2:#12091f;--bg3:#1a0f2b;
+  --pa:#8b5cf6;--pb:#a78bfa;--pm:#6c3fa0;--pmu:#7c6a9a;--pglow:rgba(139,92,246,.15);
+  --gold:#b8973a;--gs:#d4b872;--coral:#d4637a;--teal:#5ba89e;
+  --w:#eeeaf4;--w9:rgba(238,234,244,.88);--w7:rgba(238,234,244,.62);--w5:rgba(238,234,244,.42);
+  --w3:rgba(238,234,244,.22);--w12:rgba(238,234,244,.09);--w06:rgba(238,234,244,.045);--w03:rgba(238,234,244,.022);
+  --fh:'Sora',sans-serif;--fb:'DM Sans',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--ease2:cubic-bezier(.4,0,.2,1)
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--w7);overflow-x:hidden;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.6}
+
+/* ── Ambient layers ── */
+.amb{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.amb-orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.5;animation:orbFloat 20s ease-in-out infinite}
+.amb-orb.o1{width:500px;height:500px;top:-15%;left:-5%;background:rgba(108,63,160,.18);animation-delay:0s}
+.amb-orb.o2{width:400px;height:400px;bottom:-10%;right:-5%;background:rgba(139,92,246,.1);animation-delay:-7s}
+.amb-orb.o3{width:300px;height:300px;top:40%;left:50%;background:rgba(90,50,140,.08);animation-delay:-14s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,15px) scale(.95)}}
+
+/* Grain */
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease)}
+nav.scrolled{padding:.75rem 2.5rem;background:rgba(10,5,16,.82);backdrop-filter:blur(28px) saturate(1.3);border-bottom:1px solid var(--w06)}
+.nw{font-family:var(--fh);font-size:.9rem;font-weight:600;color:var(--w);text-decoration:none;letter-spacing:-.02em}
+.nl{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nl a{color:var(--w5);text-decoration:none;font-family:var(--fh);font-size:.72rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;transition:color .3s;position:relative}
+.nl a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--pb);transition:width .3s var(--ease)}
+.nl a:hover{color:var(--w)}.nl a:hover::after{width:100%}
+.ncta{color:var(--pb)!important;padding:.5rem 1.2rem;border:1px solid rgba(139,92,246,.25);border-radius:6px;transition:all .3s!important}
+.ncta::after{display:none!important}
+.ncta:hover{background:rgba(139,92,246,.08);border-color:rgba(139,92,246,.45);color:var(--w)!important;box-shadow:0 0 20px rgba(139,92,246,.1)}
+.mt{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.mt span{width:22px;height:1.5px;background:var(--w7);border-radius:1px;transition:all .3s}
+
+/* ── Hero ── */
+.hero{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:8rem 2rem 6rem;text-align:center}
+.hero-c{max-width:720px}
+.hp-w{position:relative;width:200px;height:200px;margin:0 auto 2.5rem}
+.hp{position:relative;z-index:2;width:200px;height:200px;border-radius:50%;object-fit:cover;object-position:center 20%;border:2.5px solid rgba(139,92,246,.2);box-shadow:0 0 40px rgba(139,92,246,.12),0 0 80px rgba(139,92,246,.06)}
+.hp-r{position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(from 0deg,var(--pa),transparent 25%,transparent 75%,var(--pa));animation:rr 8s linear infinite;opacity:.45}
+.hp-r::after{content:'';position:absolute;inset:2.5px;border-radius:50%;background:var(--bg)}
+@keyframes rr{to{transform:rotate(360deg)}}
+.hp-g{position:absolute;inset:-50px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.18) 0%,transparent 65%);z-index:0;filter:blur(30px);animation:gPulse 5s ease-in-out infinite}
+@keyframes gPulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.04)}}
+
+.hl{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:.68rem;font-weight:500;color:var(--w5);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2rem;padding:.4rem 1rem;border-radius:100px;background:var(--w03);border:1px solid var(--w06)}
+.pulse{width:5px;height:5px;border-radius:50%;background:#6ee7b7;box-shadow:0 0 6px #6ee7b7;animation:pu 2s ease-in-out infinite}
+@keyframes pu{0%,100%{opacity:.5}50%{opacity:1}}
+.hero h1{font-family:var(--fh);font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:700;line-height:1.08;color:var(--w);margin-bottom:1.5rem;letter-spacing:-.045em}
+.hero h1 .ac{background:linear-gradient(135deg,var(--pb) 0%,var(--gs) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-s{font-size:1rem;line-height:1.75;color:var(--w5);max-width:480px;margin:0 auto 2.5rem;font-weight:400}
+.ha{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:.8rem 1.7rem;border-radius:8px;font-family:var(--fh);font-weight:500;font-size:.84rem;letter-spacing:-.01em;text-decoration:none;transition:all .35s var(--ease);cursor:pointer;border:none}
+.btn svg{width:14px;height:14px;flex-shrink:0}
+.bf{background:var(--pa);color:#fff;box-shadow:0 2px 12px rgba(139,92,246,.25)}
+.bf:hover{background:#9b73f7;transform:translateY(-2px);box-shadow:0 8px 32px rgba(139,92,246,.35)}
+.bg2{background:var(--w06);color:var(--w7);border:1px solid var(--w12)}
+.bg2:hover{background:var(--w12);color:var(--w);border-color:var(--w3)}
+.schint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);color:var(--w3);animation:dr 2.5s ease-in-out infinite}
+@keyframes dr{0%,100%{transform:translateX(-50%) translateY(0);opacity:.35}50%{transform:translateX(-50%) translateY(6px);opacity:.6}}
+
+/* ── Scrolling ticker ── */
+.ticker{position:relative;z-index:2;padding:2rem 0;overflow:hidden;border-top:1px solid var(--w06);border-bottom:1px solid var(--w06);background:rgba(18,9,31,.5)}
+.ticker-track{display:flex;gap:0;animation:tickScroll 30s linear infinite;width:max-content}
+.ticker-item{display:flex;align-items:center;gap:1.2rem;padding:0 2.5rem;flex-shrink:0;white-space:nowrap}
+.ti-val{font-family:var(--fh);font-size:1.4rem;font-weight:700;letter-spacing:-.03em}
+.ti-val.vp{color:var(--pb)}.ti-val.vg{color:var(--gs)}.ti-val.vc{color:var(--coral)}.ti-val.vt{color:var(--teal)}
+.ti-lbl{font-size:.78rem;color:var(--w3);font-weight:400}
+.ticker-div{width:1px;height:28px;background:var(--w06);flex-shrink:0}
+@keyframes tickScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── Sections ── */
+section{position:relative;z-index:2}
+.sp{padding:6.5rem 2rem}
+.con{max-width:1060px;margin:0 auto}
+.se{font-family:var(--fh);font-size:.62rem;font-weight:600;color:var(--pmu);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+.se::before{content:'';width:16px;height:1px;background:var(--pmu)}
+.sh2{font-family:var(--fh);font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:700;color:var(--w);line-height:1.12;margin-bottom:.75rem;letter-spacing:-.04em}
+.sh2 .ac{color:var(--pb)}
+.ss{font-size:.93rem;color:var(--w5);max-width:500px;line-height:1.7}
+
+/* ── Offers ── */
+.oh{margin-bottom:3.5rem}
+.og{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--w06);border-radius:16px;overflow:hidden;box-shadow:0 1px 0 var(--w06),0 -1px 0 var(--w06),1px 0 0 var(--w06),-1px 0 0 var(--w06)}
+.oc{background:var(--bg);padding:2.5rem 2.25rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:all .5s var(--ease);position:relative;overflow:hidden}
+.oc::before{content:'';position:absolute;top:0;left:0;right:0;height:0;transition:height .5s var(--ease);pointer-events:none}
+.oc:nth-child(1)::before{background:linear-gradient(180deg,rgba(139,92,246,.06) 0%,transparent 100%)}
+.oc:nth-child(2)::before{background:linear-gradient(180deg,rgba(184,151,58,.06) 0%,transparent 100%)}
+.oc:nth-child(3)::before{background:linear-gradient(180deg,rgba(212,99,122,.06) 0%,transparent 100%)}
+.oc:nth-child(4)::before{background:linear-gradient(180deg,rgba(91,168,158,.06) 0%,transparent 100%)}
+.oc:hover::before{height:100%}
+.oc:hover{background:var(--bg2)}
+.ot{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem}
+.on{font-family:var(--fh);font-size:.62rem;font-weight:600;color:var(--w3);letter-spacing:.08em}
+.oi{width:28px;height:2.5px;border-radius:2px;opacity:.6;transition:width .4s var(--ease),opacity .4s}
+.oc:hover .oi{width:40px;opacity:1}
+.oip{background:var(--pa)}.oig{background:var(--gold)}.oic{background:var(--coral)}.oit{background:var(--teal)}
+.oc h3{font-family:var(--fh);font-size:1.15rem;font-weight:600;color:var(--w);margin-bottom:.3rem;letter-spacing:-.02em}
+.od{font-family:var(--fb);font-size:.72rem;font-weight:400;color:var(--w3);letter-spacing:.01em;margin-bottom:1rem;font-style:italic}
+.odc{font-size:.88rem;color:var(--w5);line-height:1.65;margin-bottom:1.25rem;flex:1}
+.ots{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.5rem}
+.otg{font-family:var(--fh);font-size:.62rem;font-weight:500;padding:3px 9px;border-radius:4px;background:var(--w03);color:var(--w5);letter-spacing:.02em;border:1px solid var(--w06);transition:border-color .3s}
+.oc:hover .otg{border-color:var(--w12)}
+.octa{display:inline-flex;align-items:center;gap:6px;font-family:var(--fh);font-size:.76rem;font-weight:500;letter-spacing:-.01em}
+.octa svg{width:14px;height:14px;transition:transform .4s var(--ease)}
+.oc:hover .octa svg{transform:translateX(4px)}
+.octa.xp{color:var(--pb)}.octa.xg{color:var(--gs)}.octa.xc{color:var(--coral)}.octa.xt{color:var(--teal)}
+
+/* ── About ── */
+.al{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:start;margin-top:3rem}
+.atx{font-size:.93rem;color:var(--w5);line-height:1.8}
+.atx+.atx{margin-top:1.25rem}
+.apq{margin-top:2rem;padding:1.25rem 1.5rem;border-left:2px solid var(--pa);background:linear-gradient(90deg,rgba(139,92,246,.04),transparent);border-radius:0 8px 8px 0}
+.apq p{font-family:var(--fh);font-size:.95rem;font-weight:400;color:var(--w7);line-height:1.6;letter-spacing:-.01em;font-style:italic}
+.ar{display:flex;flex-direction:column}
+.asr{display:flex;align-items:center;gap:1.25rem;padding:1.35rem 0;border-bottom:1px solid var(--w06);transition:padding-left .3s var(--ease)}
+.asr:hover{padding-left:.5rem}
+.asr:last-child{border-bottom:none}
+.asv{font-family:var(--fh);font-size:.68rem;font-weight:600;color:var(--pb);text-transform:uppercase;letter-spacing:.1em;width:72px;flex-shrink:0}
+.asl{font-size:.85rem;color:var(--w5)}
+
+/* ── CTA ── */
+.dv{position:relative;z-index:2;height:1px;background:linear-gradient(90deg,transparent,var(--w12),transparent);margin:0 2rem}
+.ctas{padding:6.5rem 2rem 7rem;position:relative;z-index:2}
+.ctac{max-width:640px;margin:0 auto;text-align:center}
+.ctad{font-size:.93rem;color:var(--w5);line-height:1.75;max-width:460px;margin:0 auto 2rem}
+.ctps{display:flex;justify-content:center;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.ctp{display:flex;align-items:center;gap:6px;font-family:var(--fh);font-size:.76rem;font-weight:500;color:var(--w5)}
+.ctp svg{width:14px;height:14px;color:var(--pa);flex-shrink:0}
+.ctba{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+
+/* ── Footer ── */
+footer{position:relative;z-index:2;padding:2.5rem 2rem;border-top:1px solid var(--w06)}
+.fi{max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fl{display:flex;gap:2rem;list-style:none}
+.fl a{color:var(--w3);text-decoration:none;font-size:.78rem;transition:color .3s}
+.fl a:hover{color:var(--w7)}
+.fc{font-size:.72rem;color:var(--w3)}
+
+/* ── Anim ── */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.vi{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ── Responsive ── */
+@media(max-width:900px){.og{grid-template-columns:1fr}.al{grid-template-columns:1fr;gap:2.5rem}}
+@media(max-width:768px){
+  nav{padding:.9rem 1.5rem}nav.scrolled{padding:.7rem 1.5rem}
+  .nl{display:none;position:fixed;inset:0;background:rgba(10,5,16,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;z-index:99}
+  .nl.open{display:flex}.nl a{font-size:1rem}.nl a::after{display:none}.ncta{font-size:.9rem!important}
+  .mt{display:flex;z-index:101}
+  .hero{padding:7rem 1.5rem 4rem;min-height:auto}
+  .hp-w{width:160px;height:160px}.hp{width:160px;height:160px}
+  .sp{padding:4.5rem 1.5rem}
+  .ctps{flex-direction:column;align-items:center;gap:.75rem}
+  .fi{flex-direction:column;text-align:center}.fl{justify-content:center}
+  .schint{display:none}.oc{padding:2rem 1.75rem}
+  .ticker-item{padding:0 1.5rem}.ti-val{font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="amb"><div class="amb-orb o1"></div><div class="amb-orb o2"></div><div class="amb-orb o3"></div></div>
+<div class="grain"></div>
+
+<nav id="nav">
+  <a href="#" class="nw">Brad Palmer</a>
+  <ul class="nl" id="navL">
+    <li><a href="#offers" onclick="cN()">Services</a></li>
+    <li><a href="#about" onclick="cN()">About</a></li>
+    <li><a href="#coaching" onclick="cN()">Coaching</a></li>
+    <li><a href="#coaching" class="ncta" onclick="cN()">Book a Call</a></li>
+  </ul>
+  <button class="mt" id="mt" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="hero">
+  <div class="hero-c">
+    <div class="hp-w rv">
+      <div class="hp-g"></div>
+      <div class="hp-r"></div>
+      <img src="assets/headshot.jpg" alt="Brad Palmer" class="hp">
+    </div>
+    <div class="hl rv d1"><span class="pulse"></span> Vancouver, BC</div>
+    <h1 class="rv d2">Build systems.<br>Scale <span class="ac">revenue.</span></h1>
+    <p class="hero-s rv d3">AI automation, high-performance ads, luxury concierge, and the playbooks to build real income online.</p>
+    <div class="ha rv d4">
+      <a href="#offers" class="btn bf">See what I offer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      <a href="#coaching" class="btn bg2">Book a strategy call</a>
+    </div>
+  </div>
+  <div class="schint"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+</section>
+
+<!-- Scrolling ticker -->
+<section class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="ti-val vp">6+</span><span class="ti-lbl">Years in digital & tech</span></div><div class="ticker-div"></div>
+    <div class="ticker-item"><span class="ti-val vg">24/7</span><span class="ti-lbl">AI agents running for clients</span></div><div class="ticker-div"></div>
+    <div class="ticker-item"><span class="ti-val vc">100+</span><span class="ti-lbl">Businesses scaled</span></div><div class="ticker-div"></div>
+    <div class="ticker-item"><span class="ti-val vt">YVR</span><span class="ti-lbl">Born & built in Vancouver</span></div><div class="ticker-div"></div>
+    <div class="ticker-item"><span class="ti-val vp">$2M+</span><span class="ti-lbl">In ad spend managed</span></div><div class="ticker-div"></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span class="ti-val vp">6+</span><span class="ti-lbl">Years in digital & tech</span></div><div class="ticker-div"></div>
+    <div class="ticker-item"><span class="ti-val vg">24/7</span><span class="ti-lbl">AI agents running for clients</span></div><div class="ticker-div"></div>
+    <div class="ticker-item"><span class="ti-val vc">100+</span><span class="ti-lbl">Businesses scaled</span></div><div class="ticker-div"></div>
+    <div class="ticker-item"><span class="ti-val vt">YVR</span><span class="ti-lbl">Born & built in Vancouver</span></div><div class="ticker-div"></div>
+    <div class="ticker-item"><span class="ti-val vp">$2M+</span><span class="ti-lbl">In ad spend managed</span></div><div class="ticker-div"></div>
+  </div>
+</section>
+
+<section id="offers" class="sp">
+  <div class="con">
+    <div class="oh rv">
+      <div class="se">Services</div>
+      <h2 class="sh2">Four ways I help you <span class="ac">win</span></h2>
+      <p class="ss">Different businesses, one thread — building systems that create leverage, income, and freedom.</p>
+    </div>
+    <div class="og">
+      <a href="https://scaletechnics.com" target="_blank" rel="noopener" class="oc rv d1">
+        <div class="ot"><span class="on">01</span><div class="oi oip"></div></div>
+        <h3>Web Ads & AI Automation</h3>
+        <div class="od">scaletechnics.com</div>
+        <p class="odc">Autonomous AI agents that manage your ads, follow up with leads, book appointments, and run your CRM around the clock. Your business never sleeps.</p>
+        <div class="ots"><span class="otg">AI Agents</span><span class="otg">Paid Ads</span><span class="otg">Lead Automation</span><span class="otg">24/7 Revenue</span></div>
+        <span class="octa xp">Explore Scale Technics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="https://valoraconcierge.com" target="_blank" rel="noopener" class="oc rv d2">
+        <div class="ot"><span class="on">02</span><div class="oi oig"></div></div>
+        <h3>Luxury Concierge</h3>
+        <div class="od">valoraconcierge.com</div>
+        <p class="odc">White-glove lifestyle management in Vancouver. Restaurant reservations, event access, travel curation, and personal shopping — for those who expect the best.</p>
+        <div class="ots"><span class="otg">Private Events</span><span class="otg">Travel</span><span class="otg">Dining</span><span class="otg">Vancouver</span></div>
+        <span class="octa xg">Discover Valora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="#" class="oc rv d3">
+        <div class="ot"><span class="on">03</span><div class="oi oic"></div></div>
+        <h3>InstaProfit Kit</h3>
+        <div class="od">Digital Product</div>
+        <p class="odc">The complete system to monetize Instagram. Templates, growth strategies, and revenue playbooks — whether you have 500 followers or 50,000.</p>
+        <div class="ots"><span class="otg">Templates</span><span class="otg">Growth Strategy</span><span class="otg">Monetization</span><span class="otg">Step-by-Step</span></div>
+        <span class="octa xc">Get the Kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="#coaching" class="oc rv d4">
+        <div class="ot"><span class="on">04</span><div class="oi oit"></div></div>
+        <h3>1-on-1 Strategy Coaching</h3>
+        <div class="od">By Application</div>
+        <p class="odc">A focused session to build your plan — whether you're scaling a business, launching a new offer, or figuring out your next move in the digital economy.</p>
+        <div class="ots"><span class="otg">Business Strategy</span><span class="otg">Revenue Planning</span><span class="otg">Custom Roadmap</span></div>
+        <span class="octa xt">Book a Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="sp">
+  <div class="con">
+    <div class="rv"><div class="se">About</div><h2 class="sh2">Built businesses. Built <span class="ac">systems.</span></h2></div>
+    <div class="al">
+      <div class="rv d1">
+        <p class="atx">I'm Brad Palmer — a Vancouver-based entrepreneur working at the intersection of AI infrastructure, paid advertising, luxury services, and digital business.</p>
+        <p class="atx">I've spent years building companies, managing ad spend, and deploying AI systems that run autonomously so business owners can focus on what actually moves the needle.</p>
+        <p class="atx">Through Scale Technics, I install 24/7 AI revenue systems. Through Valora Concierge, I deliver curated luxury experiences. And through my coaching and digital products, I help others build real income and freedom online.</p>
+        <div class="apq"><p>"The best time to build a system was yesterday. The second best time is right now."</p></div>
+      </div>
+      <div class="ar rv d2">
+        <div class="asr"><span class="asv">AI</span><span class="asl">Autonomous infrastructure & agent deployment</span></div>
+        <div class="asr"><span class="asv">Ads</span><span class="asl">Paid media, campaign ops & revenue systems</span></div>
+        <div class="asr"><span class="asv">Luxury</span><span class="asl">Concierge, curation & lifestyle management</span></div>
+        <div class="asr"><span class="asv">Coach</span><span class="asl">1-on-1 strategy, digital products & mentorship</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="dv"></div>
+
+<section id="coaching" class="ctas">
+  <div class="ctac rv">
+    <div class="se" style="justify-content:center">Book a Session</div>
+    <h2 class="sh2" style="text-align:center">Let's build your <span class="ac">next move</span></h2>
+    <p class="ctad">Whether you need AI automation, a luxury experience, or a roadmap to scale — it starts with one conversation.</p>
+    <div class="ctps">
+      <div class="ctp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>30-minute focused call</div>
+      <div class="ctp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Custom action plan</div>
+      <div class="ctp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>No obligation</div>
+    </div>
+    <div class="ctba">
+      <a href="https://calendly.com/bradpalmer" target="_blank" rel="noopener" class="btn bf">Book strategy call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17l10-10M7 7h10v10"/></svg></a>
+      <a href="/cdn-cgi/l/email-protection#89e1ece5e5e6c9ebfbe8edf9e8e5e4ecfbe6efefe0eae0e8e5a7eae6e4" class="btn bg2">Email me</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fi">
+    <span class="nw" style="cursor:default">Brad Palmer</span>
+    <ul class="fl">
+      <li><a href="https://scaletechnics.com" target="_blank">Scale Technics</a></li>
+      <li><a href="https://valoraconcierge.com" target="_blank">Valora Concierge</a></li>
+      <li><a href="#offers">Services</a></li>
+      <li><a href="#coaching">Coaching</a></li>
+    </ul>
+    <p class="fc">© 2026 Brad Palmer. Vancouver, BC.</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const n=document.getElementById('nav');
+window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+const t=document.getElementById('mt'),l=document.getElementById('navL');
+t.addEventListener('click',()=>l.classList.toggle('open'));
+function cN(){l.classList.remove('open')}
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.c
