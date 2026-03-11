@@ -96,31 +96,102 @@ section{position:relative;z-index:2}
 .ss{font-size:.93rem;color:var(--w5);max-width:500px;line-height:1.7}
 
 /* ── Offers ── */
-.oh{margin-bottom:3.5rem}
-.og{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--w06);border-radius:16px;overflow:hidden;box-shadow:0 1px 0 var(--w06),0 -1px 0 var(--w06),1px 0 0 var(--w06),-1px 0 0 var(--w06)}
-.oc{background:var(--bg);padding:2.5rem 2.25rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:all .5s var(--ease);position:relative;overflow:hidden}
-.oc::before{content:'';position:absolute;top:0;left:0;right:0;height:0;transition:height .5s var(--ease);pointer-events:none}
-.oc:nth-child(1)::before{background:linear-gradient(180deg,rgba(139,92,246,.06) 0%,transparent 100%)}
-.oc:nth-child(2)::before{background:linear-gradient(180deg,rgba(184,151,58,.06) 0%,transparent 100%)}
-.oc:nth-child(3)::before{background:linear-gradient(180deg,rgba(212,99,122,.06) 0%,transparent 100%)}
-.oc:nth-child(4)::before{background:linear-gradient(180deg,rgba(91,168,158,.06) 0%,transparent 100%)}
-.oc:hover::before{height:100%}
-.oc:hover{background:var(--bg2)}
-.ot{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem}
-.on{font-family:var(--fh);font-size:.62rem;font-weight:600;color:var(--w3);letter-spacing:.08em}
-.oi{width:28px;height:2.5px;border-radius:2px;opacity:.6;transition:width .4s var(--ease),opacity .4s}
-.oc:hover .oi{width:40px;opacity:1}
-.oip{background:var(--pa)}.oig{background:var(--gold)}.oic{background:var(--coral)}.oit{background:var(--teal)}
-.oc h3{font-family:var(--fh);font-size:1.15rem;font-weight:600;color:var(--w);margin-bottom:.3rem;letter-spacing:-.02em}
-.od{font-family:var(--fb);font-size:.72rem;font-weight:400;color:var(--w3);letter-spacing:.01em;margin-bottom:1rem;font-style:italic}
-.odc{font-size:.88rem;color:var(--w5);line-height:1.65;margin-bottom:1.25rem;flex:1}
-.ots{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.5rem}
-.otg{font-family:var(--fh);font-size:.62rem;font-weight:500;padding:3px 9px;border-radius:4px;background:var(--w03);color:var(--w5);letter-spacing:.02em;border:1px solid var(--w06);transition:border-color .3s}
-.oc:hover .otg{border-color:var(--w12)}
-.octa{display:inline-flex;align-items:center;gap:6px;font-family:var(--fh);font-size:.76rem;font-weight:500;letter-spacing:-.01em}
-.octa svg{width:14px;height:14px;transition:transform .4s var(--ease)}
-.oc:hover .octa svg{transform:translateX(4px)}
-.octa.xp{color:var(--pb)}.octa.xg{color:var(--gs)}.octa.xc{color:var(--coral)}.octa.xt{color:var(--teal)}
+.oh{margin-bottom:3rem}
+.offers-split{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.25rem}
+.split-label{font-family:var(--fh);font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--w3);white-space:nowrap}
+.split-line{flex:1;height:1px;background:var(--w06)}
+.offers-gap{margin-top:4.5rem}
+
+/* ── ScaleTechnics Card ── */
+.biz-grid{display:grid;grid-template-columns:1.22fr .78fr;gap:18px}
+.st-card{background:linear-gradient(135deg,#0e0820 0%,#0a0510 60%,#110828 100%);border:1px solid rgba(139,92,246,.18);border-radius:20px;padding:2.5rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all .5s var(--ease)}
+.st-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.5),rgba(99,102,241,.35),transparent)}
+.st-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 0%,rgba(139,92,246,.08) 0%,transparent 60%);pointer-events:none}
+.st-card:hover{border-color:rgba(139,92,246,.38);transform:translateY(-3px);box-shadow:0 24px 64px rgba(139,92,246,.14),0 4px 16px rgba(0,0,0,.4)}
+.st-co-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem}
+.st-logo{display:flex;align-items:center;gap:.65rem}
+.st-logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--pa) 0%,#6366f1 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.st-logo-icon svg{width:16px;height:16px;color:#fff}
+.st-logo-name{font-family:var(--fh);font-size:.85rem;font-weight:700;color:var(--w);letter-spacing:-.02em;display:block}
+.st-logo-domain{font-size:.63rem;color:var(--w3)}
+.st-live{display:flex;align-items:center;gap:5px;font-family:var(--fh);font-size:.6rem;font-weight:500;color:var(--pb);background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.18);padding:.28rem .7rem;border-radius:100px}
+.st-live::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--pb);animation:pu 2s ease-in-out infinite}
+.st-headline{font-family:var(--fh);font-size:1.45rem;font-weight:700;color:var(--w);line-height:1.13;letter-spacing:-.035em;margin-bottom:.5rem}
+.st-sub{font-size:.86rem;color:var(--w5);line-height:1.65;margin-bottom:1.75rem}
+.st-features{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.75rem}
+.st-feat{display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;border-radius:9px;background:rgba(139,92,246,.04);border:1px solid rgba(139,92,246,.1);transition:border-color .3s,background .3s}
+.st-card:hover .st-feat{background:rgba(139,92,246,.06);border-color:rgba(139,92,246,.18)}
+.st-feat-icon{width:22px;height:22px;border-radius:6px;background:rgba(139,92,246,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.st-feat-icon svg{width:11px;height:11px;color:var(--pb)}
+.st-feat-text{font-family:var(--fh);font-size:.76rem;color:var(--w7);font-weight:500;flex:1}
+.st-feat-badge{font-family:var(--fh);font-size:.58rem;font-weight:700;color:var(--pb);background:rgba(139,92,246,.12);padding:2px 7px;border-radius:4px;letter-spacing:.04em;flex-shrink:0}
+.st-metrics{display:flex;gap:10px;margin-bottom:1.75rem}
+.st-metric{flex:1;padding:.8rem .5rem;border-radius:9px;background:rgba(255,255,255,.02);border:1px solid var(--w06);text-align:center}
+.st-metric-val{font-family:var(--fh);font-size:1.15rem;font-weight:700;color:var(--pb);letter-spacing:-.02em}
+.st-metric-lbl{font-size:.59rem;color:var(--w3);margin-top:2px;letter-spacing:.03em;line-height:1.3}
+.st-cta{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:.79rem;font-weight:600;color:var(--pb);letter-spacing:-.01em;margin-top:auto}
+.st-cta svg{width:14px;height:14px;transition:transform .4s var(--ease)}
+.st-card:hover .st-cta svg{transform:translateX(5px)}
+
+/* ── Valora Concierge Card ── */
+.va-card{background:linear-gradient(150deg,#110c06 0%,#0a0510 50%,#0f0c05 100%);border:1px solid rgba(184,151,58,.18);border-radius:20px;padding:2.5rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all .5s var(--ease)}
+.va-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,183,114,.42),rgba(184,151,58,.28),transparent)}
+.va-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 0%,rgba(184,151,58,.08) 0%,transparent 55%);pointer-events:none}
+.va-card:hover{border-color:rgba(184,151,58,.32);transform:translateY(-3px);box-shadow:0 24px 64px rgba(184,151,58,.11),0 4px 16px rgba(0,0,0,.4)}
+.va-co-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.75rem}
+.va-wordmark{font-family:var(--fh);font-size:.82rem;font-weight:600;color:var(--gs);letter-spacing:.1em;text-transform:uppercase}
+.va-exclusive{font-family:var(--fh);font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:rgba(184,151,58,.6);border:1px solid rgba(184,151,58,.2);padding:.28rem .65rem;border-radius:4px}
+.va-headline{font-family:var(--fh);font-size:1.22rem;font-weight:700;color:var(--w);line-height:1.2;letter-spacing:-.03em;margin-bottom:.45rem}
+.va-sub{font-size:.83rem;color:var(--w5);line-height:1.65;margin-bottom:1.4rem}
+.va-divider{height:1px;background:linear-gradient(90deg,rgba(184,151,58,.18),transparent);margin-bottom:1.25rem}
+.va-assets{display:flex;flex-direction:column;gap:.48rem;margin-bottom:1.4rem}
+.va-asset{display:flex;align-items:center;gap:.75rem;font-size:.8rem;color:var(--w5)}
+.va-asset-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.55;flex-shrink:0}
+.va-location{font-family:var(--fh);font-size:.63rem;color:var(--w3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.4rem}
+.va-cta{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:.79rem;font-weight:600;color:var(--gs);letter-spacing:-.01em;margin-top:auto}
+.va-cta svg{width:14px;height:14px;transition:transform .4s var(--ease)}
+.va-card:hover .va-cta svg{transform:translateX(5px)}
+
+/* ── Personal Offers ── */
+.personal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+/* Digital Product Card */
+.dp-card{background:linear-gradient(135deg,#130810 0%,#0a0510 60%,#130a12 100%);border:1px solid rgba(212,99,122,.18);border-radius:20px;padding:2.25rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all .5s var(--ease)}
+.dp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,99,122,.42),transparent)}
+.dp-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,99,122,.07) 0%,transparent 55%);pointer-events:none}
+.dp-card:hover{border-color:rgba(212,99,122,.32);transform:translateY(-3px);box-shadow:0 20px 56px rgba(212,99,122,.12),0 4px 16px rgba(0,0,0,.4)}
+.dp-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.dp-type-badge{font-family:var(--fh);font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--coral);border:1px solid rgba(212,99,122,.22);padding:.28rem .65rem;border-radius:4px}
+.dp-access-badge{font-family:var(--fh);font-size:.6rem;font-weight:700;color:#fff;background:linear-gradient(135deg,#d4637a,#e8847a);padding:.28rem .7rem;border-radius:4px;letter-spacing:.02em}
+.dp-headline{font-family:var(--fh);font-size:1.2rem;font-weight:700;color:var(--w);line-height:1.2;letter-spacing:-.025em;margin-bottom:.4rem}
+.dp-tagline{font-size:.84rem;color:var(--w5);line-height:1.65;margin-bottom:1.2rem}
+.dp-includes-lbl{font-family:var(--fh);font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--w3);margin-bottom:.7rem}
+.dp-includes{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;flex:1}
+.dp-item{display:flex;align-items:flex-start;gap:.65rem;font-size:.8rem;color:var(--w5);line-height:1.4}
+.dp-check{width:15px;height:15px;border-radius:50%;background:rgba(212,99,122,.1);border:1px solid rgba(212,99,122,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.dp-check svg{width:8px;height:8px;color:var(--coral)}
+.dp-cta{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:.79rem;font-weight:600;color:var(--coral);letter-spacing:-.01em}
+.dp-cta svg{width:14px;height:14px;transition:transform .4s var(--ease)}
+.dp-card:hover .dp-cta svg{transform:translateX(5px)}
+
+/* Coaching Card */
+.co-card{background:linear-gradient(135deg,#060f0e 0%,#0a0510 60%,#071210 100%);border:1px solid rgba(91,168,158,.18);border-radius:20px;padding:2.25rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all .5s var(--ease)}
+.co-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(91,168,158,.42),transparent)}
+.co-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(91,168,158,.07) 0%,transparent 55%);pointer-events:none}
+.co-card:hover{border-color:rgba(91,168,158,.32);transform:translateY(-3px);box-shadow:0 20px 56px rgba(91,168,158,.1),0 4px 16px rgba(0,0,0,.4)}
+.co-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.co-live{display:flex;align-items:center;gap:5px;font-family:var(--fh);font-size:.62rem;font-weight:500;color:var(--teal)}
+.co-live::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);animation:pu 2s ease-in-out infinite}
+.co-app-badge{font-family:var(--fh);font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--w3);border:1px solid var(--w06);padding:.28rem .65rem;border-radius:4px}
+.co-headline{font-family:var(--fh);font-size:1.2rem;font-weight:700;color:var(--w);line-height:1.2;letter-spacing:-.025em;margin-bottom:.4rem}
+.co-sub{font-size:.84rem;color:var(--w5);line-height:1.65;margin-bottom:1.2rem}
+.co-who-lbl{font-family:var(--fh);font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--w3);margin-bottom:.7rem}
+.co-fits{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;flex:1}
+.co-fit{display:flex;align-items:flex-start;gap:.65rem;font-size:.8rem;color:var(--w5);line-height:1.4}
+.co-arrow{font-family:var(--fh);font-size:.7rem;color:var(--teal);opacity:.65;flex-shrink:0;margin-top:1px}
+.co-cta{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:.79rem;font-weight:600;color:var(--teal);letter-spacing:-.01em}
+.co-cta svg{width:14px;height:14px;transition:transform .4s var(--ease)}
+.co-card:hover .co-cta svg{transform:translateX(5px)}
 
 /* ── About ── */
 .al{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:start;margin-top:3rem}
@@ -159,7 +230,7 @@ footer{position:relative;z-index:2;padding:2.5rem 2rem;border-top:1px solid var(
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
 /* ── Responsive ── */
-@media(max-width:900px){.og{grid-template-columns:1fr}.al{grid-template-columns:1fr;gap:2.5rem}}
+@media(max-width:900px){.biz-grid{grid-template-columns:1fr}.personal-grid{grid-template-columns:1fr}.al{grid-template-columns:1fr;gap:2.5rem}}
 @media(max-width:768px){
   nav{padding:.9rem 1.5rem}nav.scrolled{padding:.7rem 1.5rem}
   .nl{display:none;position:fixed;inset:0;background:rgba(10,5,16,.97);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;z-index:99}
@@ -170,7 +241,7 @@ footer{position:relative;z-index:2;padding:2.5rem 2rem;border-top:1px solid var(
   .sp{padding:4.5rem 1.5rem}
   .ctps{flex-direction:column;align-items:center;gap:.75rem}
   .fi{flex-direction:column;text-align:center}.fl{justify-content:center}
-  .schint{display:none}.oc{padding:2rem 1.75rem}
+  .schint{display:none}
   .ticker-item{padding:0 1.5rem}.ti-val{font-size:1.1rem}
 }
 </style>
@@ -229,43 +300,124 @@ footer{position:relative;z-index:2;padding:2.5rem 2rem;border-top:1px solid var(
 <section id="offers" class="sp">
   <div class="con">
     <div class="oh rv">
-      <div class="se">Services</div>
-      <h2 class="sh2">Four ways I help you <span class="ac">win</span></h2>
-      <p class="ss">Different businesses, one thread — building systems that create leverage, income, and freedom.</p>
+      <div class="se">What I Do</div>
+      <h2 class="sh2">Two companies. Two <span class="ac">personal offers.</span></h2>
+      <p class="ss">My businesses run systems and experiences. My personal offers give you direct access to the playbooks and my time.</p>
     </div>
-    <div class="og">
-      <a href="https://scaletechnics.com" target="_blank" rel="noopener" class="oc rv d1">
-        <div class="ot"><span class="on">01</span><div class="oi oip"></div></div>
-        <h3>Web Ads & AI Automation</h3>
-        <div class="od">scaletechnics.com</div>
-        <p class="odc">Autonomous AI agents that manage your ads, follow up with leads, book appointments, and run your CRM around the clock. Your business never sleeps.</p>
-        <div class="ots"><span class="otg">AI Agents</span><span class="otg">Paid Ads</span><span class="otg">Lead Automation</span><span class="otg">24/7 Revenue</span></div>
-        <span class="octa xp">Explore Scale Technics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+
+    <!-- My Businesses -->
+    <div class="offers-split rv d1">
+      <span class="split-label">My Businesses</span>
+      <div class="split-line"></div>
+    </div>
+    <div class="biz-grid">
+
+      <!-- ScaleTechnics -->
+      <a href="https://scaletechnics.com" target="_blank" rel="noopener" class="st-card rv d2">
+        <div class="st-co-row">
+          <div class="st-logo">
+            <div class="st-logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div>
+              <span class="st-logo-name">ScaleTechnics</span>
+              <span class="st-logo-domain">scaletechnics.com</span>
+            </div>
+          </div>
+          <span class="st-live">Live</span>
+        </div>
+        <div class="st-headline">The AI &amp; Ads engine<br>that runs 24/7.</div>
+        <p class="st-sub">Autonomous revenue infrastructure — AI agents, paid ads, and CRM automation that generates and converts leads while you sleep.</p>
+        <div class="st-features">
+          <div class="st-feat">
+            <div class="st-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+            <span class="st-feat-text">Autonomous AI agents deployed for your business</span>
+            <span class="st-feat-badge">24/7</span>
+          </div>
+          <div class="st-feat">
+            <div class="st-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <span class="st-feat-text">High-performance paid ads &amp; campaign management</span>
+            <span class="st-feat-badge">ROI</span>
+          </div>
+          <div class="st-feat">
+            <div class="st-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <span class="st-feat-text">CRM, lead follow-up &amp; appointment booking</span>
+            <span class="st-feat-badge">Auto</span>
+          </div>
+        </div>
+        <div class="st-metrics">
+          <div class="st-metric"><div class="st-metric-val">$2M+</div><div class="st-metric-lbl">Ad Spend Managed</div></div>
+          <div class="st-metric"><div class="st-metric-val">100+</div><div class="st-metric-lbl">Businesses Scaled</div></div>
+          <div class="st-metric"><div class="st-metric-val">24/7</div><div class="st-metric-lbl">AI Always On</div></div>
+        </div>
+        <span class="st-cta">Explore ScaleTechnics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-      <a href="https://valoraconcierge.com" target="_blank" rel="noopener" class="oc rv d2">
-        <div class="ot"><span class="on">02</span><div class="oi oig"></div></div>
-        <h3>Luxury Concierge</h3>
-        <div class="od">valoraconcierge.com</div>
-        <p class="odc">White-glove lifestyle management in Vancouver. Restaurant reservations, event access, travel curation, and personal shopping — for those who expect the best.</p>
-        <div class="ots"><span class="otg">Private Events</span><span class="otg">Travel</span><span class="otg">Dining</span><span class="otg">Vancouver</span></div>
-        <span class="octa xg">Discover Valora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+
+      <!-- Valora Concierge -->
+      <a href="https://valoraconcierge.com" target="_blank" rel="noopener" class="va-card rv d3">
+        <div class="va-co-row">
+          <span class="va-wordmark">Valora</span>
+          <span class="va-exclusive">Private Access</span>
+        </div>
+        <div class="va-headline">Your key to Vancouver's<br>most exclusive world.</div>
+        <p class="va-sub">White-glove access to the finest experiences Vancouver has to offer — curated for those who don't compromise.</p>
+        <div class="va-divider"></div>
+        <div class="va-assets">
+          <div class="va-asset"><div class="va-asset-dot"></div>Private Yachts &amp; Charters</div>
+          <div class="va-asset"><div class="va-asset-dot"></div>Maybach, Rolls-Royce &amp; Exotic Vehicles</div>
+          <div class="va-asset"><div class="va-asset-dot"></div>Private Jets &amp; Executive Travel</div>
+          <div class="va-asset"><div class="va-asset-dot"></div>Exclusive Events &amp; Private Dining</div>
+          <div class="va-asset"><div class="va-asset-dot"></div>Luxury Suites &amp; Accommodations</div>
+        </div>
+        <div class="va-location">Based in Vancouver, BC — available worldwide</div>
+        <span class="va-cta">Explore Valora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-      <a href="#" class="oc rv d3">
-        <div class="ot"><span class="on">03</span><div class="oi oic"></div></div>
-        <h3>InstaProfit Kit</h3>
-        <div class="od">Digital Product</div>
-        <p class="odc">The complete system to monetize Instagram. Templates, growth strategies, and revenue playbooks — whether you have 500 followers or 50,000.</p>
-        <div class="ots"><span class="otg">Templates</span><span class="otg">Growth Strategy</span><span class="otg">Monetization</span><span class="otg">Step-by-Step</span></div>
-        <span class="octa xc">Get the Kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+
+    </div>
+
+    <!-- Personal Offers -->
+    <div class="offers-gap"></div>
+    <div class="offers-split rv">
+      <span class="split-label">Personal Offers</span>
+      <div class="split-line"></div>
+    </div>
+    <div class="personal-grid">
+
+      <!-- Digital Product -->
+      <a href="#" class="dp-card rv d1">
+        <div class="dp-header-row">
+          <span class="dp-type-badge">Digital Product</span>
+          <span class="dp-access-badge">Instant Access</span>
+        </div>
+        <div class="dp-headline">InstaProfit Kit</div>
+        <p class="dp-tagline">The complete system to monetize Instagram — templates, strategies, and revenue playbooks in one download.</p>
+        <div class="dp-includes-lbl">What's inside</div>
+        <div class="dp-includes">
+          <div class="dp-item"><div class="dp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></div>Done-for-you content templates</div>
+          <div class="dp-item"><div class="dp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></div>Monetization strategy playbook</div>
+          <div class="dp-item"><div class="dp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></div>Growth system &amp; posting calendar</div>
+          <div class="dp-item"><div class="dp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></div>500 to 50K follower revenue roadmap</div>
+        </div>
+        <span class="dp-cta">Get the Kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-      <a href="#coaching" class="oc rv d4">
-        <div class="ot"><span class="on">04</span><div class="oi oit"></div></div>
-        <h3>1-on-1 Strategy Coaching</h3>
-        <div class="od">By Application</div>
-        <p class="odc">A focused session to build your plan — whether you're scaling a business, launching a new offer, or figuring out your next move in the digital economy.</p>
-        <div class="ots"><span class="otg">Business Strategy</span><span class="otg">Revenue Planning</span><span class="otg">Custom Roadmap</span></div>
-        <span class="octa xt">Book a Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+
+      <!-- 1-on-1 Coaching -->
+      <a href="#coaching" class="co-card rv d2">
+        <div class="co-header-row">
+          <span class="co-live">Open for clients</span>
+          <span class="co-app-badge">By Application</span>
+        </div>
+        <div class="co-headline">1-on-1 Strategy<br>Coaching</div>
+        <p class="co-sub">Direct access to me — we map your exact path to revenue, growth, or your next move in the digital economy.</p>
+        <div class="co-who-lbl">This is for you if you're...</div>
+        <div class="co-fits">
+          <div class="co-fit"><span class="co-arrow">&#8594;</span>Scaling a business and need a clear system</div>
+          <div class="co-fit"><span class="co-arrow">&#8594;</span>Launching a new offer or digital product</div>
+          <div class="co-fit"><span class="co-arrow">&#8594;</span>Building income online and stuck on the next step</div>
+        </div>
+        <span class="co-cta">Apply for a Session <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
+
     </div>
   </div>
 </section>
